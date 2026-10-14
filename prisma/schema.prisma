@@ -1,0 +1,189 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  passwordHash String
+  name         String
+  role         String     @default("ADMIN") // ADMIN, USER
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  auditLogs    AuditLog[]
+}
+
+model Departure {
+  id            String    @id @default(uuid())
+  batchNumber   Int       @unique
+  name          String
+  slug          String    @unique
+  arrivalDate   DateTime
+  departureDate DateTime
+  totalDays     Int
+  isFullMoon    Boolean   @default(false)
+  totalCapacity Int       @default(25)
+  bookedSeats   Int       @default(0)
+  status        String    @default("AVAILABLE") // AVAILABLE, FAST_FILLING, SOLD_OUT
+  description   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  bookings      Booking[]
+}
+
+model Route {
+  id              String        @id @default(uuid())
+  routeNumber     Int           @unique
+  name            String
+  code            String        @unique // "bus-both-ways", "flight-to-lhasa", "lhasa-ali-pulan"
+  approachType    String // "BUS_BOTH_WAYS", "FLIGHT_LHASA", "FLIGHT_LHASA_ALI_PULAN"
+  titleTag        String
+  durationDays    Int
+  description     String
+  highlights      String // JSON array of string points
+  itinerary       String // JSON array of day-by-day objects
+  startingFromInr Int
+  image           String
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  pricingTiers    PricingTier[]
+  bookings        Booking[]
+}
+
+model PricingTier {
+  id                       String   @id @default(uuid())
+  routeId                  String
+  route                    Route    @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  passportType             String // "INDIAN" or "FOREIGN"
+  basePrice                Int // in INR (e.g. 350000 or 425000)
+  currency                 String   @default("INR")
+  gstPercentage            Float    @default(5.0)
+  foreignAirfareSupplement Int      @default(0) // in USD (e.g. 0, 600, 1200)
+  depositRequired          Int      @default(25000) // in INR (or USD 250)
+  termsNotes               String?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+model Booking {
+  id               String      @id @default(uuid())
+  bookingReference String      @unique // e.g. SKY-2027-1042
+  departureId      String
+  departure        Departure   @relation(fields: [departureId], references: [id])
+  routeId          String
+  route            Route       @relation(fields: [routeId], references: [id])
+  passportType     String // "INDIAN" or "FOREIGN"
+  contactName      String
+  contactEmail     String
+  contactPhone     String
+  totalTravellers  Int         @default(1)
+  baseAmount       Int // Subtotal before GST/Supplements
+  gstAmount        Int // 5% GST on Indian bookings
+  supplementAmount Int         @default(0) // USD supplement converted or stored
+  totalAmount      Int // Total payable
+  currency         String      @default("INR")
+  status           String      @default("PENDING") // PENDING, CONFIRMED, CANCELLED
+  paymentStatus    String      @default("UNPAID") // UNPAID, PARTIALLY_PAID, PAID, REFUNDED
+  notes            String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  travellers       Traveller[]
+  payments         Payment[]
+}
+
+model Traveller {
+  id                    String   @id @default(uuid())
+  bookingId             String
+  booking               Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  fullName              String
+  passportNumber        String
+  nationality           String
+  age                   Int
+  gender                String
+  medicalConditions     String?
+  dietaryPreference     String   @default("PURE_VEGETARIAN")
+  emergencyContactName  String
+  emergencyContactPhone String
+  isPrimary             Boolean  @default(false)
+  createdAt             DateTime @default(now())
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  bookingId       String
+  booking         Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  transactionId   String   @unique
+  paymentMethod   String   @default("MOCK_GATEWAY")
+  amount          Int
+  currency        String   @default("INR")
+  status          String   @default("SUCCESS")
+  gatewayResponse String? // JSON metadata
+  createdAt       DateTime @default(now())
+}
+
+model Enquiry {
+  id              String   @id @default(uuid())
+  name            String
+  email           String
+  phone           String
+  preferredBatch  String?
+  preferredRoute  String?
+  travellersCount Int?     @default(1)
+  message         String
+  status          String   @default("NEW") // NEW, CONTACTED, RESOLVED
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Faq {
+  id           String   @id @default(uuid())
+  question     String
+  answer       String
+  category     String   @default("GENERAL") // GENERAL, ITINERARY, PRICING, HEALTH, TRAVEL_PERMITS
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userEmail String?
+  action    String
+  entity    String
+  entityId  String?
+  details   String? // JSON metadata
+  createdAt DateTime @default(now())
+}
+
+model Member {
+  id                  String   @id @default(uuid())
+  membershipReference String   @unique // e.g. SHL-MEM-2027-1042
+  firstName           String
+  lastName            String
+  email               String   @unique
+  mobile              String   @unique
+  whatsapp            String?
+  dateOfBirth         String?
+  nationality         String
+  country             String
+  state               String
+  city                String
+  passwordHash        String
+  membershipType      String   @default("STANDARD")
+  yatraInterest       String? // "YES", "MAYBE", "FUTURE"
+  preferredBatch      String?
+  preferredPackage    String?
+  travellersCount     Int?     @default(1)
+  sourceDiscovery     String?
+  marketingConsent    Boolean  @default(false)
+  status              String   @default("ACTIVE") // ACTIVE, PENDING, SUSPENDED
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}

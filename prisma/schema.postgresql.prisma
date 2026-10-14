@@ -1,0 +1,204 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum BatchStatus {
+  AVAILABLE
+  FAST_FILLING
+  SOLD_OUT
+}
+
+enum RouteType {
+  BUS_BOTH_WAYS
+  FLIGHT_LHASA
+  FLIGHT_LHASA_ALI_PULAN
+}
+
+enum PassportType {
+  INDIAN
+  FOREIGN
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  UNPAID
+  PARTIALLY_PAID
+  PAID
+  REFUNDED
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  RESOLVED
+}
+
+model User {
+  id           String     @id @default(uuid())
+  email        String     @unique
+  passwordHash String
+  name         String
+  role         String     @default("ADMIN")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  auditLogs    AuditLog[]
+}
+
+model Departure {
+  id            String    @id @default(uuid())
+  batchNumber   Int       @unique
+  name          String
+  slug          String    @unique
+  arrivalDate   DateTime
+  departureDate DateTime
+  totalDays     Int
+  isFullMoon    Boolean   @default(false)
+  totalCapacity Int       @default(25)
+  bookedSeats   Int       @default(0)
+  status        String    @default("AVAILABLE")
+  description   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  bookings      Booking[]
+}
+
+model Route {
+  id              String        @id @default(uuid())
+  routeNumber     Int           @unique
+  name            String
+  code            String        @unique
+  approachType    String
+  titleTag        String
+  durationDays    Int
+  description     String
+  highlights      String
+  itinerary       String
+  startingFromInr Int
+  image           String
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  pricingTiers    PricingTier[]
+  bookings        Booking[]
+}
+
+model PricingTier {
+  id                       String   @id @default(uuid())
+  routeId                  String
+  route                    Route    @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  passportType             String
+  basePrice                Int
+  currency                 String   @default("INR")
+  gstPercentage            Float    @default(5.0)
+  foreignAirfareSupplement Int      @default(0)
+  depositRequired          Int      @default(25000)
+  termsNotes               String?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+model Booking {
+  id               String      @id @default(uuid())
+  bookingReference String      @unique
+  departureId      String
+  departure        Departure   @relation(fields: [departureId], references: [id])
+  routeId          String
+  route            Route       @relation(fields: [routeId], references: [id])
+  passportType     String
+  contactName      String
+  contactEmail     String
+  contactPhone     String
+  totalTravellers  Int         @default(1)
+  baseAmount       Int
+  gstAmount        Int
+  supplementAmount Int         @default(0)
+  totalAmount      Int
+  currency         String      @default("INR")
+  status           String      @default("PENDING")
+  paymentStatus    String      @default("UNPAID")
+  notes            String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  travellers       Traveller[]
+  payments         Payment[]
+}
+
+model Traveller {
+  id                    String   @id @default(uuid())
+  bookingId             String
+  booking               Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  fullName              String
+  passportNumber        String
+  nationality           String
+  age                   Int
+  gender                String
+  medicalConditions     String?
+  dietaryPreference     String   @default("PURE_VEGETARIAN")
+  emergencyContactName  String
+  emergencyContactPhone String
+  isPrimary             Boolean  @default(false)
+  createdAt             DateTime @default(now())
+}
+
+model Payment {
+  id              String   @id @default(uuid())
+  bookingId       String
+  booking         Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  transactionId   String   @unique
+  paymentMethod   String   @default("MOCK_GATEWAY")
+  amount          Int
+  currency        String   @default("INR")
+  status          String   @default("SUCCESS")
+  gatewayResponse String?
+  createdAt       DateTime @default(now())
+}
+
+model Enquiry {
+  id              String   @id @default(uuid())
+  name            String
+  email           String
+  phone           String
+  preferredBatch  String?
+  preferredRoute  String?
+  travellersCount Int?     @default(1)
+  message         String
+  status          String   @default("NEW")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Faq {
+  id           String   @id @default(uuid())
+  question     String
+  answer       String
+  category     String   @default("GENERAL")
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userEmail String?
+  action    String
+  entity    String
+  entityId  String?
+  details   String?
+  createdAt DateTime @default(now())
+}
