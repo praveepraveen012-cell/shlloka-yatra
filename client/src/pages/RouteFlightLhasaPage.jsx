@@ -14,16 +14,16 @@ export default function RouteFlightLhasaPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
             <span className="badge-pill badge-gold">Option 2</span>
-            <span style={{ color: 'var(--glacier)', fontSize: '0.85rem' }}>A More Comfortable Start</span>
+            <span style={{ color: 'var(--amber-soft)', fontSize: '0.85rem' }}>A More Comfortable Start</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Fly Kathmandu to Lhasa, Then Continue by Road
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             Fly over the Himalayan giants straight from Kathmandu to Lhasa. Experience the cultural soul of Tibet, visit Potala Palace and Jokhang Temple, acclimatise gently, and journey westward to Kailash.
           </p>
           <div className="btns" style={{ marginTop: '30px' }}>

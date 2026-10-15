@@ -26,15 +26,15 @@ export default function DeparturesPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             2027 Pilgrimage Calendar
           </span>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Fixed Departure Dates for 2027
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             8 structured batches operating between May and August 2027. Four batches are specifically timed to coincide with sacred Full Moon nights at holy Lake Manasarovar and Mount Kailash.
           </p>
         </div>
@@ -42,13 +42,13 @@ export default function DeparturesPage() {
       </section>
 
       {/* Interactive Batch Selector */}
-      <section className="sec dark" style={{ background: '#09151a' }}>
+      <section className="sec sec-dark" style={{ background: 'var(--deep)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span style={{ fontSize: '0.85rem', color: 'var(--saffron)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--amber-soft)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
               Interactive Batch Browser
             </span>
-            <h2 className="t t-center">Select Your 2027 Batch</h2>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>Select Your 2027 Batch</h2>
           </div>
           <DepartureSelector />
         </div>

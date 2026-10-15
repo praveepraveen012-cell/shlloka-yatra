@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, Sparkles, ArrowRight, Clock, MapPin } from 'lucide-react';
+import { assetUrl } from '../utils/assets';
 
 export default function YatrasPage() {
   useEffect(() => {
@@ -10,15 +11,15 @@ export default function YatrasPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             Sacred Pilgrimages
           </span>
-          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Journeys of Spiritual Transformation
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '60ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '60ch' }}>
             Begin where your heart is drawn. Explore our flagship Kailash Manasarovar expedition and forthcoming Himalayan pilgrimages.
           </p>
         </div>
@@ -30,7 +31,7 @@ export default function YatrasPage() {
         <div className="wrap">
           <div
             style={{
-              background: '#0d1a21',
+              background: 'var(--deep)',
               borderRadius: '24px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
               overflow: 'hidden',
@@ -43,7 +44,7 @@ export default function YatrasPage() {
           >
             <div style={{ position: 'relative', minHeight: '380px' }}>
               <img
-                src="/images/img_2.jpg"
+                src={assetUrl('/images/img_2.jpg')}
                 alt="Mount Kailash Flagship"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
@@ -70,25 +71,25 @@ export default function YatrasPage() {
               <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--glacier)', display: 'block', marginBottom: '8px' }}>
                 Tibet • Trans-Himalaya
               </span>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', fontWeight: 400 }}>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', fontWeight: 400, color: '#FFFFFF' }}>
                 Kailash Manasarovar
               </h2>
-              <p style={{ color: '#b9c8cc', fontSize: '1rem', lineHeight: '1.7', marginBottom: '24px' }}>
+              <p style={{ color: '#F0E6DF', fontSize: '1rem', lineHeight: '1.7', marginBottom: '24px' }}>
                 The sacred circumambulation of Mount Kailash (6,638 m) and holy rituals at Lake Manasarovar. Multiple travel options: overland bus or flight-assisted via Lhasa and Ali.
               </p>
 
-              <div style={{ display: 'flex', gap: '20px', marginBottom: '32px', fontSize: '0.9rem', color: 'var(--glacier)' }}>
+              <div style={{ display: 'flex', gap: '20px', marginBottom: '32px', fontSize: '0.9rem', color: '#E8DFD8' }}>
                 <div>
-                  <small style={{ display: 'block', color: '#7e969d' }}>Duration</small>
+                  <small style={{ display: 'block', color: 'var(--amber-soft)' }}>Duration</small>
                   <b style={{ color: '#ffffff' }}>13 to 16 Days</b>
                 </div>
                 <div>
-                  <small style={{ display: 'block', color: '#7e969d' }}>Departures</small>
+                  <small style={{ display: 'block', color: 'var(--amber-soft)' }}>Departures</small>
                   <b style={{ color: '#ffffff' }}>8 Fixed Batches (May–Aug)</b>
                 </div>
                 <div>
-                  <small style={{ display: 'block', color: '#7e969d' }}>Starting from</small>
-                  <b style={{ color: 'var(--saffron)' }}>INR 3,50,000 + GST</b>
+                  <small style={{ display: 'block', color: 'var(--amber-soft)' }}>Starting from</small>
+                  <b style={{ color: 'var(--yellow-warm)' }}>INR 3,50,000 + GST</b>
                 </div>
               </div>
 
@@ -107,11 +108,11 @@ export default function YatrasPage() {
       </section>
 
       {/* Forthcoming Sacred Journeys */}
-      <section className="sec dark" style={{ background: '#091419' }}>
+      <section className="sec sec-dark" style={{ background: 'var(--night)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <h2 className="t t-center">Expanding Spiritual Horizons</h2>
-            <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>Expanding Spiritual Horizons</h2>
+            <p className="lead" style={{ margin: '0 auto', textAlign: 'center', color: '#F0E6DF' }}>
               A growing collection of sacred Himalayan journeys curated with the same devotion, care, and attention to detail.
             </p>
           </div>
@@ -119,20 +120,20 @@ export default function YatrasPage() {
           <div className="grid-2">
             <div className="card-dark" style={{ borderStyle: 'dashed' }}>
               <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>Coming Soon</span>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '10px' }}>Muktinath & Damodar Kund</h3>
-              <p style={{ color: '#8fa4a9', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.6rem', marginBottom: '10px', color: '#FFFDF9' }}>Muktinath & Damodar Kund</h3>
+              <p style={{ color: '#D6CBC1', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
                 Sacred journey to Muktinath (Lord Vishnu) in the Mustang region of Nepal, and the glacial origins of the Gandaki River at holy Damodar Kund.
               </p>
-              <span style={{ fontSize: '0.85rem', color: 'var(--glacier)' }}>Announcements scheduled for late 2027</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--amber-soft)' }}>Announcements scheduled for late 2027</span>
             </div>
 
             <div className="card-dark" style={{ borderStyle: 'dashed' }}>
               <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>Coming Soon</span>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '10px' }}>Other Sacred Journeys</h3>
-              <p style={{ color: '#8fa4a9', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.6rem', marginBottom: '10px', color: '#FFFDF9' }}>Other Sacred Journeys</h3>
+              <p style={{ color: '#D6CBC1', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
                 Spiritual paths across high-altitude monasteries and sacred shrines designed around purpose, presence, and respectful community travel.
               </p>
-              <span style={{ fontSize: '0.85rem', color: 'var(--glacier)' }}>Announcements scheduled for late 2027</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--amber-soft)' }}>Announcements scheduled for late 2027</span>
             </div>
           </div>
         </div>

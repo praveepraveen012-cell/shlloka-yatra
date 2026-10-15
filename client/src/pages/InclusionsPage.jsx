@@ -40,15 +40,15 @@ export default function InclusionsPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             Transparent Policies
           </span>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Inclusions & Exclusions
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             We believe in complete transparency. Review the exhaustive breakdown of what is covered under your Yatra fee and what personal expenditures remain separate.
           </p>
         </div>

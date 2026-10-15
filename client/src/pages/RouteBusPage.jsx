@@ -14,16 +14,16 @@ export default function RouteBusPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
             <span className="badge-pill badge-gold">Option 1</span>
-            <span style={{ color: 'var(--glacier)', fontSize: '0.85rem' }}>The Classic Overland Pilgrimage</span>
+            <span style={{ color: 'var(--amber-soft)', fontSize: '0.85rem' }}>The Classic Overland Pilgrimage</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             By Bus Both Ways
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             The traditional overland pilgrimage from Kathmandu to Kailash and back by road across the southern Tibetan plateau. Time-tested, deeply scenic, and grounded in ancient travel traditions.
           </p>
           <div className="btns" style={{ marginTop: '30px' }}>

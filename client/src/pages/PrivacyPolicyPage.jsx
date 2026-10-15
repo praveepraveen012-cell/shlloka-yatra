@@ -10,15 +10,15 @@ export default function PrivacyPolicyPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             Legal
           </span>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Privacy Policy
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             How Shlloka Yatra Private Limited collects, safeguards, and utilizes traveller personal, biometric, and medical information for pilgrimage permit issuance.
           </p>
         </div>

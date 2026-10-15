@@ -10,23 +10,23 @@ export default function KailashPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             Main Pilgrimage Overview
           </span>
-          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Mount Kailash & Lake Manasarovar
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             Known as Mount Meru, the Axis Mundi, and the eternal abode of Lord Shiva and Goddess Parvati, Kailash is considered the spiritual epicenter of the universe.
           </p>
           <div className="btns" style={{ marginTop: '30px' }}>
-            <Link to="/routes" className="btn btn-go">
+            <Link to="/packages" className="btn btn-go">
               <span>View 3 Route Options</span>
               <ArrowRight size={16} />
             </Link>
-            <Link to="/departures-2027" className="btn btn-out">
+            <Link to="/departures" className="btn btn-out">
               <span>2027 Departure Dates</span>
             </Link>
           </div>

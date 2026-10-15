@@ -11,6 +11,7 @@ export default function AboutPage() {
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero Header */}
       <section
+        className="page-hero-dark"
         style={{
           background: 'radial-gradient(circle at 70% 30%, rgba(233,162,59,0.2) 0%, transparent 60%), var(--night)',
           color: '#ffffff',
@@ -21,10 +22,10 @@ export default function AboutPage() {
           <span className="badge-pill badge-gold" style={{ marginBottom: '18px' }}>
             About Shlloka Yatra
           </span>
-          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '24px' }}>
+          <h1 style={{ fontSize: 'clamp(40px, 6vw, 76px)', fontWeight: 300, marginBottom: '24px', color: '#FFFFFF' }}>
             Faithful journeys. Higher horizons.
           </h1>
-          <p className="lead" style={{ color: '#d0dfe2', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             Shlloka Yatra Private Limited was founded on a simple conviction: sacred pilgrimages are not ordinary holidays. They demand deep reverent context, uncompromising high-altitude safety, and meticulous logistical care.
           </p>
         </div>
@@ -84,31 +85,31 @@ export default function AboutPage() {
       </section>
 
       {/* Company Registry Info */}
-      <section className="sec dark" style={{ background: '#0a171d' }}>
+      <section className="sec sec-dark" style={{ background: 'var(--deep)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <h2 className="t t-center">Corporate & Operational Integrity</h2>
-            <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>Corporate & Operational Integrity</h2>
+            <p className="lead" style={{ margin: '0 auto', textAlign: 'center', color: '#F0E6DF' }}>
               Registered and operated under full legal compliance with Nepal and China-Tibet tourism and religious expedition regulations.
             </p>
           </div>
 
           <div className="grid-3">
             <div className="card-dark">
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Registered Entity</h4>
-              <p style={{ color: '#8ea3a8', fontSize: '0.92rem', lineHeight: '1.6' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#FFFDF9' }}>Registered Entity</h4>
+              <p style={{ color: '#D6CBC1', fontSize: '0.92rem', lineHeight: '1.6' }}>
                 Shlloka Yatra Private Limited is a registered pilgrimage management entity dedicated exclusively to high-altitude spiritual expeditions.
               </p>
             </div>
             <div className="card-dark">
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Banking Channel</h4>
-              <p style={{ color: '#8ea3a8', fontSize: '0.92rem', lineHeight: '1.6' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#FFFDF9' }}>Banking Channel</h4>
+              <p style={{ color: '#D6CBC1', fontSize: '0.92rem', lineHeight: '1.6' }}>
                 All transactions are processed through verified corporate bank accounts with IndusInd Bank (A/c 201037169009) with full GST and tax invoicing.
               </p>
             </div>
             <div className="card-dark">
-              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>Yatri Support Cell</h4>
-              <p style={{ color: '#8ea3a8', fontSize: '0.92rem', lineHeight: '1.6' }}>
+              <h4 style={{ fontSize: '1.2rem', marginBottom: '10px', color: '#FFFDF9' }}>Yatri Support Cell</h4>
+              <p style={{ color: '#D6CBC1', fontSize: '0.92rem', lineHeight: '1.6' }}>
                 Dedicated yatra advisors available at +91 6366852888 and volunteers@shlloka.com to guide your document submission, medicals, and preparation.
               </p>
             </div>
@@ -117,10 +118,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '80px 0', textAlign: 'center', background: 'var(--deep)', color: '#ffffff' }}>
+      <section className="sec sec-dark" style={{ padding: '80px 0', textAlign: 'center', background: 'var(--night)', color: '#ffffff' }}>
         <div className="wrap">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Begin Your Journey With Us</h2>
-          <p style={{ color: '#b9c8cc', maxWidth: '50ch', margin: '0 auto 30px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#FFFFFF' }}>Begin Your Journey With Us</h2>
+          <p style={{ color: '#F0E6DF', maxWidth: '50ch', margin: '0 auto 30px' }}>
             Explore our 2027 departures and discover the route that speaks to your comfort and schedule.
           </p>
           <div className="btns" style={{ justifyContent: 'center' }}>

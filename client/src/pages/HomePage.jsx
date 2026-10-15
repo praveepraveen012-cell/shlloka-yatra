@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import DepartureSelector from '../components/DepartureSelector';
 import api from '../services/api';
+import { assetUrl } from '../utils/assets';
 
 export default function HomePage() {
   const [routes, setRoutes] = useState([]);
@@ -77,14 +78,29 @@ export default function HomePage() {
           boxSizing: 'border-box',
         }}
       >
-        {/* Background Video with Poster Fallback */}
-        {!videoError ? (
+        {/* Baseline High-Res Poster Layer (Immediate visual render with no blank gap) */}
+        <img
+          src={assetUrl('/images/hero-poster.jpg')}
+          alt="Mount Kailash Himalayan landscape"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+          }}
+        />
+
+        {/* Cinematic Background Video Layer with assetUrl */}
+        {!videoError && (
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/hero-poster.jpg"
+            poster={assetUrl('/images/hero-poster.jpg')}
             onError={() => setVideoError(true)}
             style={{
               position: 'absolute',
@@ -94,25 +110,12 @@ export default function HomePage() {
               height: '100%',
               objectFit: 'cover',
               transform: 'translate(-50%, -50%)',
-              zIndex: 0,
+              zIndex: 1,
             }}
           >
-            <source src="/videos/kailash-yatra-hero.mp4" type="video/mp4" />
+            <source src={assetUrl('/videos/kailash-yatra-hero.mp4')} type="video/mp4" />
+            <source src={assetUrl('/videos/kailash-yatra-hero.webm')} type="video/webm" />
           </video>
-        ) : (
-          <img
-            src="/images/img_1.jpg"
-            alt="Mount Kailash Himalayan landscape"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              zIndex: 0,
-            }}
-          />
         )}
 
         {/* Dark Mountain Overlay for Supreme Text Legibility */}
@@ -125,12 +128,12 @@ export default function HomePage() {
             bottom: 0,
             background:
               'linear-gradient(180deg, rgba(20, 16, 14, 0.75) 0%, rgba(20, 16, 14, 0.45) 45%, rgba(20, 16, 14, 0.92) 100%)',
-            zIndex: 1,
+            zIndex: 2,
           }}
         />
 
         {/* Hero Copy (Exact Required Text) */}
-        <div className="wrap" style={{ position: 'relative', zIndex: 2, textAlign: 'center', width: '100%' }}>
+        <div className="wrap" style={{ position: 'relative', zIndex: 3, textAlign: 'center', width: '100%' }}>
           {/* Eyebrow */}
           <div
             style={{
@@ -280,7 +283,7 @@ export default function HomePage() {
                 }}
               >
                 <img
-                  src="/images/img_6.jpg"
+                  src={assetUrl('/images/img_6.jpg')}
                   alt="Holy Lake Mansarovar with colorful prayer flags"
                   style={{ width: '100%', height: '360px', objectFit: 'cover' }}
                 />
@@ -310,8 +313,8 @@ export default function HomePage() {
             <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
               Sacred Himalayan Landscapes
             </span>
-            <h2 className="sec-title">The Twin Jewels of Western Tibet</h2>
-            <p className="sec-desc">
+            <h2 className="sec-title" style={{ color: '#FFFFFF' }}>The Twin Jewels of Western Tibet</h2>
+            <p className="sec-desc" style={{ color: '#F0E6DF' }}>
               An untouched sanctuary of high Tibetan plateaus, turquoise glacial lakes, and divine monolithic granite faces.
             </p>
           </div>
@@ -320,7 +323,7 @@ export default function HomePage() {
             {/* Card 1 */}
             <div className="card-dark" style={{ padding: 0, overflow: 'hidden' }}>
               <img
-                src="/images/img_1.jpg"
+                src={assetUrl('/images/img_1.jpg')}
                 alt="Mount Kailash North Face at sunrise"
                 style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
@@ -340,7 +343,7 @@ export default function HomePage() {
             {/* Card 2 */}
             <div className="card-dark" style={{ padding: 0, overflow: 'hidden' }}>
               <img
-                src="/images/img_7.jpg"
+                src={assetUrl('/images/img_7.jpg')}
                 alt="Lake Mansarovar azure waters"
                 style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
@@ -360,7 +363,7 @@ export default function HomePage() {
             {/* Card 3 */}
             <div className="card-dark" style={{ padding: 0, overflow: 'hidden' }}>
               <img
-                src="/images/img_10.jpg"
+                src={assetUrl('/images/img_10.jpg')}
                 alt="Dolma La Pass at 5630 meters"
                 style={{ width: '100%', height: '260px', objectFit: 'cover' }}
               />
@@ -752,7 +755,7 @@ export default function HomePage() {
                 }}
               >
                 <img
-                  src="/images/img_9.jpg"
+                  src={assetUrl('/images/img_9.jpg')}
                   alt="Sherpa guide and yatris on Himalayan mountain pass"
                   style={{ width: '100%', height: '380px', objectFit: 'cover' }}
                 />

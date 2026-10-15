@@ -87,6 +87,7 @@ export default function Landing2027Page() {
               maxWidth: '19ch',
               margin: '0 auto 24px',
               lineHeight: 1.12,
+              color: '#FFFFFF',
             }}
           >
             Kailash Mansarovar Parikrama Yatra 2027
@@ -166,14 +167,14 @@ export default function Landing2027Page() {
       </section>
 
       {/* 2. 2027 Departures Section */}
-      <section className="sec" id="schedule" style={{ background: '#0b171c' }}>
+      <section className="sec sec-dark" id="schedule" style={{ background: 'var(--deep)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-            <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--glacier)', display: 'block', marginBottom: '8px' }}>
+            <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--amber-soft)', display: 'block', marginBottom: '8px' }}>
               8 Confirmed Departures
             </span>
-            <h2 className="t t-center">2027 Fixed Departure Schedule</h2>
-            <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>2027 Fixed Departure Schedule</h2>
+            <p className="lead" style={{ margin: '0 auto', textAlign: 'center', color: '#F0E6DF' }}>
               Batches aligned with auspicious Full Moon nights at Lake Mansarovar and Mount Kailash. Early registration is advised as air sectors have strictly limited allocations.
             </p>
           </div>
@@ -183,14 +184,14 @@ export default function Landing2027Page() {
       </section>
 
       {/* 3. Three Package Options */}
-      <section className="sec" style={{ background: '#081115' }}>
+      <section className="sec sec-dark" style={{ background: 'var(--night)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '46px' }}>
-            <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--saffron)', display: 'block', marginBottom: '8px' }}>
+            <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--yellow-warm)', display: 'block', marginBottom: '8px' }}>
               Transparent Travel Options
             </span>
-            <h2 className="t t-center">2027 Pilgrimage Packages & Pricing</h2>
-            <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>2027 Pilgrimage Packages & Pricing</h2>
+            <p className="lead" style={{ margin: '0 auto', textAlign: 'center', color: '#F0E6DF' }}>
               Lock in your 2027 yatra slot today with a registration deposit of INR 25,000 (or USD 250).
             </p>
           </div>
@@ -200,14 +201,14 @@ export default function Landing2027Page() {
       </section>
 
       {/* 4. Lead Capture Form Section */}
-      <section className="sec" id="enquiry-form" style={{ background: '#0d1d25' }}>
+      <section className="sec sec-dark" id="enquiry-form" style={{ background: 'var(--deep)' }}>
         <div className="wrap-sm">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span className="badge-pill badge-gold" style={{ marginBottom: '12px' }}>
               Direct Advisor Coordination
             </span>
-            <h2 className="t t-center">Request 2027 Yatra Information & Callback</h2>
-            <p className="lead" style={{ margin: '0 auto', textAlign: 'center' }}>
+            <h2 className="t t-center" style={{ color: '#FFFFFF' }}>Request 2027 Yatra Information & Callback</h2>
+            <p className="lead" style={{ margin: '0 auto', textAlign: 'center', color: '#F0E6DF' }}>
               Submit your details to receive the comprehensive 2027 itinerary dossier and connect with a dedicated Yatra advisor.
             </p>
           </div>
@@ -346,10 +347,10 @@ export default function Landing2027Page() {
       </section>
 
       {/* 5. Bottom Final CTA */}
-      <section style={{ padding: '80px 0', textAlign: 'center', background: '#081115' }}>
+      <section className="sec sec-dark" style={{ padding: '80px 0', textAlign: 'center', background: 'var(--night)' }}>
         <div className="wrap">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>Ready to Confirm Your 2027 Yatra?</h2>
-          <p style={{ color: '#a2b9be', maxWidth: '50ch', margin: '0 auto 32px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#FFFFFF' }}>Ready to Confirm Your 2027 Yatra?</h2>
+          <p style={{ color: '#F0E6DF', maxWidth: '50ch', margin: '0 auto 32px' }}>
             Slots on flight sectors and full-moon batches are limited by official permit quotas.
           </p>
           <div className="btns" style={{ justifyContent: 'center' }}>

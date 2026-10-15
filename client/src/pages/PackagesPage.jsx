@@ -87,15 +87,15 @@ export default function PackagesPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Editorial Page Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '16px' }}>
             2027 Pilgrimage Options
           </span>
-          <h1 style={{ fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Yatra Packages & Pricing
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             Three distinct travel routes designed to match your endurance, time availability, and comfort preferences. Transparent pricing derived strictly from the official 2027 pilgrimage brochure.
           </p>
         </div>

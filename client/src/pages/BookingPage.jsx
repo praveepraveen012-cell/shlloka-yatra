@@ -213,15 +213,15 @@ export default function BookingPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)', minHeight: '100vh' }}>
       {/* Editorial Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 70px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 70px' }}>
         <div className="wrap">
           <span className="badge-pill badge-gold" style={{ marginBottom: '14px' }}>
             Multi-Step Yatra Registration
           </span>
-          <h1 style={{ fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 300, marginBottom: '16px' }}>
+          <h1 style={{ fontSize: 'clamp(36px, 5vw, 68px)', fontWeight: 300, marginBottom: '16px', color: '#FFFFFF' }}>
             Book Your Kailash Yatra 2027
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             Complete your registration in 5 straightforward steps. Real-time seat inventory check, transparent pricing from the brochure, and official bank transfer coordination.
           </p>
         </div>

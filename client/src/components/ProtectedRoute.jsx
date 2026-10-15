@@ -36,7 +36,7 @@ export default function ProtectedRoute({ children }) {
 
   if (checking) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--night)', color: 'var(--glacier)' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--night)', color: 'var(--amber-soft)' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ display: 'inline-block', width: '36px', height: '36px', border: '3px solid rgba(233,162,59,0.3)', borderTopColor: 'var(--saffron)', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
           <p style={{ marginTop: '16px' }}>Verifying administrative security credentials...</p>

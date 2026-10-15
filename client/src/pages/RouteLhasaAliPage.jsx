@@ -14,16 +14,16 @@ export default function RouteLhasaAliPage() {
   return (
     <div style={{ backgroundColor: 'var(--snow)' }}>
       {/* Hero Header */}
-      <section style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
+      <section className="page-hero-dark" style={{ background: 'var(--night)', color: '#ffffff', padding: '160px 0 90px' }}>
         <div className="wrap">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
             <span className="badge-pill badge-gold">Option 3</span>
-            <span style={{ color: 'var(--glacier)', fontSize: '0.85rem' }}>The Fastest and Most Convenient Option</span>
+            <span style={{ color: 'var(--amber-soft)', fontSize: '0.85rem' }}>The Fastest and Most Convenient Option</span>
           </div>
-          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px' }}>
+          <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 70px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
             Fly to Lhasa & Ali/Pulan
           </h1>
-          <p className="lead" style={{ color: '#c5d5d8', maxWidth: '64ch' }}>
+          <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
             The premier approach with dual flight sectors minimizing long overland road travel. Direct access to Western Tibet, ideal for seniors and yatris seeking maximum comfort and time efficiency.
           </p>
           <div className="btns" style={{ marginTop: '30px' }}>
