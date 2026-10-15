@@ -178,7 +178,11 @@ p {
 .sec-dark,
 .page-hero-dark,
 .dark,
-[data-theme="dark"],
+[data-theme="dark"] {
+  background-color: var(--deep);
+  color: var(--text-body-dark) !important;
+}
+
 section[style*="--night"],
 section[style*="background: var(--night)"],
 section[style*="background: #1A1512"],
@@ -284,8 +288,10 @@ footer a:hover {
   color: var(--text-heading-light);
 }
 
-.sec-dark .sec-title {
-  color: var(--text-heading-dark);
+.sec-dark .sec-title,
+section[style*="--night"] .sec-title,
+section[style*="--deep"] .sec-title {
+  color: var(--text-heading-dark) !important;
 }
 
 .sec-desc {
@@ -294,8 +300,10 @@ footer a:hover {
   line-height: 1.7;
 }
 
-.sec-dark .sec-desc {
-  color: var(--text-secondary-dark);
+.sec-dark .sec-desc,
+section[style*="--night"] .sec-desc,
+section[style*="--deep"] .sec-desc {
+  color: var(--text-secondary-dark) !important;
 }
 
 /* Badges & Pills */

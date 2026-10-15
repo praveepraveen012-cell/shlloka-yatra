@@ -322,14 +322,14 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 3: FULL-WIDTH SCENIC MOUNT KAILASH & LAKE MANSAROVAR FEATURE
           ========================================================================= */}
-      <section className="sec sec-dark">
+      <section className="sec sec-dark" style={{ backgroundColor: 'var(--deep)' }}>
         <div className="wrap">
           <div className="sec-head centered">
             <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
               Sacred Himalayan Landscapes
             </span>
             <h2 className="sec-title" style={{ color: '#FFFFFF' }}>The Twin Jewels of Western Tibet</h2>
-            <p className="sec-desc" style={{ color: '#F0E6DF' }}>
+            <p className="sec-desc" style={{ color: '#E9DCCB' }}>
               An untouched sanctuary of high Tibetan plateaus, turquoise glacial lakes, and divine monolithic granite faces.
             </p>
           </div>
@@ -579,14 +579,14 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 5: 2027 DEPARTURE CALENDAR
           ========================================================================= */}
-      <section className="sec sec-dark" id="departures">
+      <section className="sec sec-dark" id="departures" style={{ backgroundColor: 'var(--night)' }}>
         <div className="wrap">
           <div className="sec-head centered">
             <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
               Official 2027 Calendar
             </span>
-            <h2 className="sec-title">Upcoming 2027 Departure Batches</h2>
-            <p className="sec-desc">
+            <h2 className="sec-title" style={{ color: '#FFFFFF' }}>Upcoming 2027 Departure Batches</h2>
+            <p className="sec-desc" style={{ color: '#E9DCCB' }}>
               Eight confirmed departure batches from May through August 2027. Four batches align with sacred Full Moon nights at Lake Mansarovar and Kailash.
             </p>
           </div>
@@ -594,7 +594,7 @@ export default function HomePage() {
           <DepartureSelector />
 
           <div style={{ textAlign: 'center', marginTop: '44px' }}>
-            <Link to="/departures" className="btn btn-out">
+            <Link to="/departures" className="btn btn-out" style={{ borderColor: 'rgba(255, 255, 255, 0.65)', color: '#FFFFFF' }}>
               <Calendar size={18} />
               <span>View Full 2027 Schedule & Disclaimers</span>
             </Link>
@@ -671,17 +671,17 @@ export default function HomePage() {
       {/* =========================================================================
           SECTION 7: PREPARATION & HIGH-ALTITUDE TRAVEL CHALLENGES
           ========================================================================= */}
-      <section className="sec sec-dark">
+      <section className="sec sec-dark" style={{ backgroundColor: 'var(--deep)' }}>
         <div className="wrap">
           <div className="split" style={{ alignItems: 'center' }}>
             <div>
               <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
                 Medical Diligence & Safety
               </span>
-              <h2 className="sec-title">
+              <h2 className="sec-title" style={{ color: '#FFFFFF' }}>
                 Physical Preparation Without False Guarantees
               </h2>
-              <p style={{ color: '#D6CBC1', fontSize: '1.08rem', lineHeight: '1.7', marginBottom: '24px' }}>
+              <p style={{ color: '#E9DCCB', fontSize: '1.08rem', lineHeight: '1.7', marginBottom: '24px' }}>
                 High-altitude pilgrimage in western Tibet involves extreme remoteness, thin atmospheric pressure, and altitudes exceeding 5,000 meters. Shlloka Yatra manages this with absolute clinical transparency and seasoned mountaineering care.
               </p>
 
