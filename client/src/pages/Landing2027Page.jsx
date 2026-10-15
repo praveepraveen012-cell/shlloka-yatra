@@ -1252,29 +1252,77 @@ export default function Landing2027Page() {
       <section
         style={{
           background: 'linear-gradient(135deg, #221C18 0%, #1A1512 100%)',
-          padding: '90px 0',
+          padding: '110px 0',
           textAlign: 'center',
           color: '#FFFFFF',
           borderTop: '1px solid rgba(245, 184, 46, 0.25)',
+          width: '100%',
+          boxSizing: 'border-box',
         }}
       >
-        <div className="wrap" style={{ maxWidth: '840px' }}>
-          <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
+        <div
+          className="wrap"
+          style={{
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            boxSizing: 'border-box',
+          }}
+        >
+          <span
+            className="eyebrow"
+            style={{
+              color: 'var(--yellow-warm)',
+              textAlign: 'center',
+              display: 'inline-block',
+            }}
+          >
             Commence Your Pilgrimage
           </span>
-          <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.6rem)', color: '#FFFFFF', marginBottom: '18px' }}>
+          <h2
+            style={{
+              fontSize: 'clamp(2.4rem, 4.8vw, 4rem)',
+              color: '#FFFFFF',
+              marginBottom: '20px',
+              textAlign: 'center',
+              maxWidth: '960px',
+              lineHeight: 1.15,
+            }}
+          >
             Plan Your Sacred Kailash Yatra
           </h2>
-          <p style={{ fontSize: '1.15rem', color: '#E9DCCB', lineHeight: '1.7', marginBottom: '36px' }}>
+          <p
+            style={{
+              fontSize: '1.2rem',
+              color: '#E9DCCB',
+              lineHeight: '1.75',
+              maxWidth: '820px',
+              textAlign: 'center',
+              margin: '0 auto 40px',
+            }}
+          >
             Spaces on each of the eight 2027 departure batches are structured to guarantee high-altitude safety and authentic volunteer care. Connect with our coordinators today.
           </p>
 
-          <div className="btns" style={{ justifyContent: 'center', gap: '16px' }}>
-            <Link to="/book" className="btn btn-go" style={{ padding: '16px 36px', fontSize: '1.05rem' }}>
+          <div
+            className="btns"
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '18px',
+              width: '100%',
+              margin: '0 auto',
+            }}
+          >
+            <Link to="/book" className="btn btn-go" style={{ padding: '16px 38px', fontSize: '1.05rem' }}>
               <span>Book Your Yatra Now</span>
               <ArrowRight size={18} />
             </Link>
-            <Link to="/membership/register" className="btn btn-out" style={{ padding: '16px 32px', fontSize: '1.05rem' }}>
+            <Link to="/membership/register" className="btn btn-out" style={{ padding: '16px 34px', fontSize: '1.05rem' }}>
               <span>Become a Shlloka Member</span>
             </Link>
           </div>

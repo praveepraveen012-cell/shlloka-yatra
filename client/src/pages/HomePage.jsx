@@ -892,48 +892,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* =========================================================================
-          SECTION 10: MEMBERSHIP CTA (Become a Member)
-          ========================================================================= */}
-      <section
-        className="sec"
-        style={{
-          background: 'linear-gradient(135deg, #2B231E 0%, #1A1512 100%)',
-          color: '#FFFDF9',
-          textAlign: 'center',
-          position: 'relative',
-        }}
-      >
-        <div className="wrap" style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <span className="eyebrow" style={{ color: 'var(--yellow-warm)' }}>
-            Join Our Sacred Community
-          </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFDF9', marginBottom: '16px' }}>
-            Become a Shlloka Yatra Member
-          </h2>
-          <p style={{ color: '#D6CBC1', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '36px' }}>
-            Register as a community member to receive prioritized batch advisories, preparation check-lists, live Himalayan weather briefings, and dedicated volunteer support for Kailash Mansarovar 2027.
-          </p>
 
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link
-              to="/membership/register"
-              className="btn btn-go"
-              style={{ padding: '16px 36px', fontSize: '1.02rem', textDecoration: 'none' }}
-            >
-              <UserCheck size={18} />
-              <span>Become a Member Today</span>
-            </Link>
-            <Link
-              to="/login"
-              className="btn btn-out"
-              style={{ padding: '16px 32px', fontSize: '1.02rem', textDecoration: 'none' }}
-            >
-              <span>Member Sign In</span>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* =========================================================================
           SECTION 11: CONTACT AND ENQUIRY CTA
