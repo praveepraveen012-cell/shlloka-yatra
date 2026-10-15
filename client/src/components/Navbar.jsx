@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, User, LogOut } from 'lucide-react';
+import { Menu, X, User, LogOut, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,6 +48,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'Kailash Yatra 2027', path: '/kailash-mansarovar-yatra-2027', featured: true },
     { name: 'About', path: '/about' },
     { name: 'Yatra Packages', path: '/packages' },
     { name: '2027 Departures', path: '/departures' },
@@ -57,21 +58,20 @@ export default function Navbar() {
   ];
 
   // Dynamic header styles:
-  // Over video hero (unscrolled on homepage or dark pages): transparent dark overlay
-  // Scrolled: solid ivory/white sticky header with charcoal text and orange buttons
+  // Over video hero (unscrolled on homepage or dark campaign landing page)
   const isDarkHero = !isScrolled && (location.pathname === '/' || location.pathname === '/kailash-mansarovar-yatra-2027');
 
   const headerBg = isScrolled
     ? '#FFFDF9'
     : isDarkHero
-    ? 'linear-gradient(to bottom, rgba(20, 16, 14, 0.82) 0%, rgba(20, 16, 14, 0) 100%)'
+    ? 'linear-gradient(to bottom, rgba(26, 21, 18, 0.88) 0%, rgba(26, 21, 18, 0) 100%)'
     : '#FFF9F0';
 
-  const textColor = isDarkHero ? '#FFFDF9' : 'var(--charcoal)';
-  const brandSubColor = isDarkHero ? '#E0D5C7' : 'var(--warm-grey)';
+  const textColor = isDarkHero ? '#FFFFFF' : '#29231E';
+  const brandSubColor = isDarkHero ? '#E9DCCB' : '#65584D';
   const navHoverColor = 'var(--orange-primary)';
-  const borderBottom = isScrolled ? '1px solid rgba(41, 35, 30, 0.08)' : 'none';
-  const shadow = isScrolled ? '0 4px 20px rgba(41, 35, 30, 0.06)' : 'none';
+  const borderBottom = isScrolled ? '1px solid rgba(41, 35, 30, 0.1)' : 'none';
+  const shadow = isScrolled ? '0 4px 20px rgba(41, 35, 30, 0.08)' : 'none';
 
   return (
     <header
@@ -154,19 +154,46 @@ export default function Navbar() {
           style={{
             display: 'none',
             alignItems: 'center',
-            gap: '22px',
+            gap: '20px',
             fontSize: '0.92rem',
           }}
         >
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
+
+            if (link.featured) {
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  style={{
+                    background: isActive ? 'var(--orange-deep)' : 'rgba(232, 117, 24, 0.16)',
+                    color: isActive ? '#FFFFFF' : isDarkHero ? 'var(--yellow-warm)' : 'var(--orange-deep)',
+                    border: '1.5px solid var(--orange-primary)',
+                    padding: '6px 14px',
+                    borderRadius: '999px',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <Sparkles size={13} />
+                  <span>{link.name}</span>
+                </Link>
+              );
+            }
+
             return (
               <Link
                 key={link.path}
                 to={link.path}
                 style={{
                   color: isActive ? 'var(--orange-primary)' : textColor,
-                  fontWeight: isActive ? 600 : 500,
+                  fontWeight: isActive ? 700 : 500,
                   transition: 'color 0.2s ease',
                   textDecoration: 'none',
                   whiteSpace: 'nowrap',
@@ -215,7 +242,7 @@ export default function Navbar() {
                 style={{
                   background: 'transparent',
                   border: 'none',
-                  color: isDarkHero ? '#D6CBC1' : 'var(--warm-grey)',
+                  color: isDarkHero ? '#E9DCCB' : '#65584D',
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -228,7 +255,7 @@ export default function Navbar() {
             </div>
           ) : (
             <>
-              {/* Login Button (Outlined Orange) */}
+              {/* Login Button */}
               <Link
                 to="/login"
                 className="btn-login-outline"
@@ -242,7 +269,7 @@ export default function Navbar() {
                 Login
               </Link>
 
-              {/* Become a Member Button (Solid Orange) */}
+              {/* Become a Member Button */}
               <Link
                 to="/membership/register"
                 className="btn-member"
@@ -306,11 +333,11 @@ export default function Navbar() {
             width: '100%',
             background: '#FFF9F0',
             borderBottom: '2px solid var(--orange-primary)',
-            boxShadow: '0 12px 36px rgba(41, 35, 30, 0.14)',
+            boxShadow: '0 12px 36px rgba(41, 35, 30, 0.18)',
             padding: '24px 6%',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px',
+            gap: '12px',
             maxHeight: '80vh',
             overflowY: 'auto',
           }}
@@ -320,15 +347,32 @@ export default function Navbar() {
               key={link.path}
               to={link.path}
               style={{
-                color: location.pathname === link.path ? 'var(--orange-primary)' : 'var(--charcoal)',
-                fontWeight: location.pathname === link.path ? 700 : 500,
+                color: location.pathname === link.path ? 'var(--orange-primary)' : '#29231E',
+                fontWeight: location.pathname === link.path || link.featured ? 700 : 500,
                 fontSize: '1.05rem',
                 padding: '10px 0',
                 borderBottom: '1px solid rgba(41, 35, 30, 0.08)',
                 textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
               }}
             >
-              {link.name}
+              <span>{link.name}</span>
+              {link.featured && (
+                <span
+                  style={{
+                    fontSize: '0.72rem',
+                    background: 'var(--orange-primary)',
+                    color: '#FFFFFF',
+                    padding: '2px 8px',
+                    borderRadius: '999px',
+                    fontWeight: 700,
+                  }}
+                >
+                  Featured
+                </span>
+              )}
             </Link>
           ))}
 

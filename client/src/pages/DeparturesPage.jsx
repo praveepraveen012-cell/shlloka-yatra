@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Moon, Users, Clock, ArrowRight, ShieldCheck, Info } from 'lucide-react';
+import { Calendar, Moon, ArrowRight, ShieldCheck, Info } from 'lucide-react';
 import DepartureSelector from '../components/DepartureSelector';
 import api from '../services/api';
+import { OFFICIAL_SCHEDULE_DISCLAIMER } from '../data/brochureData';
 
 export default function DeparturesPage() {
   const [departures, setDepartures] = useState([]);
@@ -16,7 +17,6 @@ export default function DeparturesPage() {
     if (!dateStr) return '';
     const date = new Date(dateStr);
     return date.toLocaleDateString('en-GB', {
-      weekday: 'short',
       day: 'numeric',
       month: 'short',
       year: 'numeric',
@@ -32,10 +32,10 @@ export default function DeparturesPage() {
             2027 Pilgrimage Calendar
           </span>
           <h1 style={{ fontSize: 'clamp(38px, 5.5vw, 72px)', fontWeight: 300, marginBottom: '20px', color: '#FFFFFF' }}>
-            Fixed Departure Dates for 2027
+            Official 2027 Departure Batches
           </h1>
           <p className="lead" style={{ color: '#F0E6DF', maxWidth: '64ch' }}>
-            8 structured batches operating between May and August 2027. Four batches are specifically timed to coincide with sacred Full Moon nights at holy Lake Manasarovar and Mount Kailash.
+            Eight brochure-published departure batches operating between May and August 2027. Four batches are specifically timed to coincide with sacred Full Moon nights at holy Lake Manasarovar and Mount Kailash.
           </p>
         </div>
         <div className="flags" style={{ marginTop: '70px' }} />
@@ -45,8 +45,8 @@ export default function DeparturesPage() {
       <section className="sec sec-dark" style={{ background: 'var(--deep)' }}>
         <div className="wrap">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <span style={{ fontSize: '0.85rem', color: 'var(--amber-soft)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
-              Interactive Batch Browser
+            <span style={{ fontSize: '0.85rem', color: 'var(--yellow-warm)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
+              Interactive Batch Calendar
             </span>
             <h2 className="t t-center" style={{ color: '#FFFFFF' }}>Select Your 2027 Batch</h2>
           </div>
@@ -58,9 +58,10 @@ export default function DeparturesPage() {
       <section className="sec">
         <div className="wrap">
           <div style={{ marginBottom: '32px' }}>
-            <h2 className="t">Complete 2027 Departure Schedule Table</h2>
-            <p className="lead">
-              Review arrival and final departure dates across all 8 batches.
+            <span className="eyebrow">Brochure Published Dates</span>
+            <h2 className="t" style={{ color: 'var(--charcoal)' }}>Complete 2027 Departure Schedule Table</h2>
+            <p className="lead" style={{ color: 'var(--muted)' }}>
+              Official schedule as published in the Shlloka Yatra 2027 brochure.
             </p>
           </div>
 
@@ -75,54 +76,54 @@ export default function DeparturesPage() {
                 borderRadius: '16px',
                 overflow: 'hidden',
                 boxShadow: 'var(--shadow-sm)',
-                border: '1px solid #e1e9ec',
+                border: '1px solid #E5DDD3',
               }}
             >
               <thead>
-                <tr style={{ background: '#0e1c22', color: '#ffffff', textAlign: 'left' }}>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Batch</th>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Kathmandu Arrival</th>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Final Departure</th>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Total Days</th>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Status</th>
-                  <th style={{ padding: '16px 20px', fontWeight: 500, fontSize: '0.9rem' }}>Action</th>
+                <tr style={{ background: '#29231E', color: '#FFFFFF', textAlign: 'left' }}>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Batch</th>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Kathmandu Arrival</th>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Final Departure</th>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Duration</th>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Full Moon Alignment</th>
+                  <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.9rem' }}>Action</th>
                 </tr>
               </thead>
-              <tbody style={{ fontSize: '0.92rem', color: 'var(--ink)' }}>
+              <tbody style={{ fontSize: '0.92rem', color: 'var(--charcoal)' }}>
                 {departures.map((batch) => (
-                  <tr key={batch.id} style={{ borderBottom: '1px solid #eef2f3' }}>
+                  <tr key={batch.id} style={{ borderBottom: '1px solid #F0E8DF' }}>
                     <td style={{ padding: '18px 20px', fontWeight: 600 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span>{batch.name}</span>
-                        {batch.isFullMoon && (
-                          <span className="badge-pill badge-moon" style={{ fontSize: '0.7rem', padding: '2px 8px' }}>
-                            Full Moon
-                          </span>
-                        )}
+                        <span style={{ color: '#29231E' }}>{batch.name}</span>
                       </div>
                     </td>
-                    <td style={{ padding: '18px 20px' }}>{formatDate(batch.arrivalDate)}</td>
-                    <td style={{ padding: '18px 20px' }}>{formatDate(batch.departureDate)}</td>
-                    <td style={{ padding: '18px 20px' }}><b>{batch.totalDays} Days</b></td>
+                    <td style={{ padding: '18px 20px', color: '#40362E' }}>{formatDate(batch.arrivalDate)}</td>
+                    <td style={{ padding: '18px 20px', color: '#40362E' }}>{formatDate(batch.departureDate)}</td>
+                    <td style={{ padding: '18px 20px', color: '#29231E', fontWeight: 600 }}>{batch.totalDays} Days</td>
                     <td style={{ padding: '18px 20px' }}>
-                      <span
-                        className={`badge-pill ${
-                          batch.status === 'AVAILABLE'
-                            ? 'badge-status-available'
-                            : batch.status === 'FAST_FILLING'
-                            ? 'badge-status-filling'
-                            : 'badge-status-soldout'
-                        }`}
-                        style={{ fontSize: '0.72rem', padding: '3px 10px' }}
-                      >
-                        {batch.status.replace('_', ' ')}
-                      </span>
+                      {batch.isFullMoon ? (
+                        <span
+                          className="badge-pill badge-moon"
+                          style={{
+                            fontSize: '0.74rem',
+                            padding: '4px 10px',
+                            background: 'rgba(245, 184, 46, 0.18)',
+                            color: 'var(--orange-deep)',
+                            border: '1px solid rgba(245, 184, 46, 0.45)',
+                          }}
+                        >
+                          <Moon size={11} fill="var(--orange-deep)" />
+                          <span>{batch.fullMoonLabel || 'Full Moon'}</span>
+                        </span>
+                      ) : (
+                        <span style={{ color: '#8C7F73', fontSize: '0.82rem' }}>Regular Season</span>
+                      )}
                     </td>
                     <td style={{ padding: '18px 20px' }}>
                       <Link
                         to={`/book-now?departureId=${batch.id}`}
                         className="btn btn-go btn-sm"
-                        style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+                        style={{ padding: '7px 16px', fontSize: '0.82rem' }}
                       >
                         Book Batch
                       </Link>
@@ -135,19 +136,20 @@ export default function DeparturesPage() {
 
           <div
             style={{
-              marginTop: '32px',
+              marginTop: '28px',
               padding: '20px 24px',
-              background: '#ffffff',
-              borderRadius: '12px',
-              border: '1px solid #e1e9ec',
+              background: '#FFF9F0',
+              borderRadius: '14px',
+              border: '1px solid rgba(232, 117, 24, 0.25)',
               display: 'flex',
               gap: '14px',
               alignItems: 'flex-start',
             }}
           >
-            <Info size={20} color="var(--saffron)" style={{ flexShrink: 0, marginTop: '2px' }} />
-            <p style={{ fontSize: '0.88rem', color: 'var(--muted)', lineHeight: '1.6' }}>
-              <b>Important Departure Timing Note:</b> Air-route departures may shift by approximately one day depending on flight schedules, Tibet group permit issuance, and weather clearance in high Himalayan sectors. We strongly recommend booking your flight tickets into Kathmandu with flexible rebooking options.
+            <Info size={20} color="var(--orange-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <p style={{ fontSize: '0.9rem', color: '#40362E', lineHeight: '1.6' }}>
+              <b style={{ color: '#29231E' }}>Schedule & Permit Notice: </b>
+              {OFFICIAL_SCHEDULE_DISCLAIMER}
             </p>
           </div>
         </div>

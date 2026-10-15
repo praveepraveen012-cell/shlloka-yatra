@@ -91,6 +91,8 @@ export default function App() {
         <Route path="/pricing" element={<Navigate to="/packages" replace />} />
         <Route path="/yatras" element={<Navigate to="/packages" replace />} />
         <Route path="/routes" element={<Navigate to="/packages" replace />} />
+        <Route path="/kailash-2027" element={<Navigate to="/kailash-mansarovar-yatra-2027" replace />} />
+        <Route path="/yatra-2027" element={<Navigate to="/kailash-mansarovar-yatra-2027" replace />} />
       </Route>
 
       {/* Admin Portal Authentication */}

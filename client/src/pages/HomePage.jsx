@@ -187,14 +187,29 @@ export default function HomePage() {
             Experience the awe-inspiring landscapes of Mount Kailash and Lake Mansarovar with a thoughtfully organized pilgrimage journey.
           </p>
 
-          {/* Buttons: Primary "Explore the Yatra" & Secondary "Become a Member" */}
-          <div className="btns" style={{ justifyContent: 'center', gap: '18px' }}>
+          {/* Buttons: Primary "Kailash Yatra 2027" & Secondary "Explore Packages" & "Become a Member" */}
+          <div className="btns" style={{ justifyContent: 'center', gap: '18px', flexWrap: 'wrap' }}>
             <Link
-              to="/packages"
+              to="/kailash-mansarovar-yatra-2027"
               className="btn btn-go"
               style={{ padding: '16px 36px', fontSize: '1.02rem', textDecoration: 'none' }}
             >
-              <span>Explore the Yatra</span>
+              <Sparkles size={18} />
+              <span>Kailash Yatra 2027</span>
+            </Link>
+
+            <Link
+              to="/packages"
+              className="btn btn-out"
+              style={{
+                padding: '16px 32px',
+                fontSize: '1.02rem',
+                textDecoration: 'none',
+                borderColor: 'var(--yellow-warm)',
+                color: '#FFFFFF',
+              }}
+            >
+              <span>Explore Packages</span>
               <ArrowRight size={18} />
             </Link>
 
@@ -205,7 +220,7 @@ export default function HomePage() {
                 padding: '16px 32px',
                 fontSize: '1.02rem',
                 textDecoration: 'none',
-                borderColor: 'var(--yellow-warm)',
+                borderColor: 'rgba(255, 255, 255, 0.4)',
                 color: '#FFFFFF',
               }}
             >
@@ -942,8 +957,16 @@ export default function HomePage() {
           <p style={{ color: '#D6CBC1', fontSize: '1.1rem', lineHeight: '1.7', marginBottom: '36px' }}>
             Our volunteer coordination team is available to answer your questions regarding medical suitability, passport validity, batch availability, and booking timelines.
           </p>
-          <div className="btns" style={{ justifyContent: 'center', gap: '18px' }}>
-            <Link to="/contact" className="btn btn-go" style={{ padding: '16px 36px' }}>
+          <div className="btns" style={{ justifyContent: 'center', gap: '18px', flexWrap: 'wrap' }}>
+            <Link
+              to="/kailash-mansarovar-yatra-2027"
+              className="btn btn-go"
+              style={{ padding: '16px 36px', fontSize: '1.02rem', textDecoration: 'none' }}
+            >
+              <Sparkles size={18} />
+              <span>Kailash Yatra 2027</span>
+            </Link>
+            <Link to="/contact" className="btn btn-out" style={{ padding: '16px 32px' }}>
               <span>Send An Enquiry</span>
               <ArrowRight size={17} />
             </Link>

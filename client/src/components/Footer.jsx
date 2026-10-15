@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Phone, Mail, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#201A16', // Deep charcoal / warm burnt base
-        color: '#D6CBC1',
+        backgroundColor: '#1A1512', // Deep warm charcoal base
+        color: '#FFF9F0',
         width: '100%',
         boxSizing: 'border-box',
         position: 'relative',
@@ -42,7 +42,7 @@ export default function Footer() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
-                color: '#FFFDF9',
+                color: '#FFFFFF',
                 marginBottom: '18px',
                 textDecoration: 'none',
               }}
@@ -57,7 +57,7 @@ export default function Footer() {
                     fontFamily: 'var(--serif)',
                     fontSize: '1.25rem',
                     letterSpacing: '0.12em',
-                    color: '#FFFDF9',
+                    color: '#FFFFFF',
                   }}
                 >
                   SHLLOKA YATRA
@@ -67,8 +67,9 @@ export default function Footer() {
                     display: 'block',
                     fontSize: '0.62rem',
                     letterSpacing: '0.22em',
-                    color: 'var(--amber-soft)',
+                    color: 'var(--yellow-warm)',
                     textTransform: 'uppercase',
+                    fontWeight: 600,
                   }}
                 >
                   SACRED HIMALAYAN PILGRIMAGE
@@ -76,23 +77,24 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p style={{ fontSize: '0.92rem', lineHeight: '1.7', color: '#D6CBC1', marginBottom: '20px' }}>
-              Thoughtfully organized pilgrimages to Mount Kailash and Lake Mansarovar. Grounded in spiritual reverence, authentic vegetarian care, and dedicated volunteer support.
+            <p style={{ fontSize: '0.94rem', lineHeight: '1.7', color: '#E9DCCB', marginBottom: '20px' }}>
+              Thoughtfully organized pilgrimages to Mount Kailash and Lake Manasarovar. Grounded in spiritual reverence, authentic vegetarian care, and dedicated volunteer support.
             </p>
 
             <Link
-              to="/packages"
+              to="/kailash-mansarovar-yatra-2027"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                color: 'var(--amber-soft)',
-                fontSize: '0.9rem',
-                fontWeight: 600,
+                color: 'var(--yellow-warm)',
+                fontSize: '0.92rem',
+                fontWeight: 700,
                 textDecoration: 'none',
               }}
             >
-              <span>Explore the 2027 Yatra</span>
+              <Sparkles size={16} />
+              <span>Kailash Yatra 2027 Campaign</span>
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -101,7 +103,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                color: '#FFFDF9',
+                color: '#FFFFFF',
                 fontSize: '1.08rem',
                 marginBottom: '18px',
                 fontFamily: 'var(--sans)',
@@ -115,39 +117,54 @@ export default function Footer() {
             <ul
               style={{
                 listStyle: 'none',
-                fontSize: '0.92rem',
+                fontSize: '0.94rem',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '12px',
               }}
             >
               <li>
-                <Link to="/" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link
+                  to="/kailash-mansarovar-yatra-2027"
+                  style={{
+                    color: 'var(--yellow-warm)',
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  <span>Kailash Yatra 2027</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   About Shlloka Yatra
                 </Link>
               </li>
               <li>
-                <Link to="/packages" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/packages" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Yatra Packages
                 </Link>
               </li>
               <li>
-                <Link to="/departures" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/departures" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   2027 Departures
                 </Link>
               </li>
               <li>
-                <Link to="/itinerary" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/itinerary" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Itineraries
                 </Link>
               </li>
               <li>
-                <Link to="/preparation-safety" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/preparation-safety" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Preparation & Safety
                 </Link>
               </li>
@@ -158,7 +175,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                color: '#FFFDF9',
+                color: '#FFFFFF',
                 fontSize: '1.08rem',
                 marginBottom: '18px',
                 fontFamily: 'var(--sans)',
@@ -172,14 +189,14 @@ export default function Footer() {
             <ul
               style={{
                 listStyle: 'none',
-                fontSize: '0.92rem',
+                fontSize: '0.94rem',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '12px',
               }}
             >
               <li>
-                <Link to="/login" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/login" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Login
                 </Link>
               </li>
@@ -188,7 +205,7 @@ export default function Footer() {
                   to="/membership/register"
                   style={{
                     color: 'var(--orange-primary)',
-                    fontWeight: 600,
+                    fontWeight: 700,
                     textDecoration: 'none',
                   }}
                 >
@@ -196,18 +213,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/membership/register" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
-                  Membership Registration
-                </Link>
-              </li>
-              <li>
-                <Link to="/account" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/account" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   My Account Portal
                 </Link>
               </li>
               <li>
-                <Link to="/book" style={{ color: 'var(--amber-soft)', textDecoration: 'none' }}>
-                  Book Yatra (Separate Flow)
+                <Link to="/book" style={{ color: 'var(--yellow-warm)', textDecoration: 'none' }}>
+                  Book Yatra (Reservation Flow)
                 </Link>
               </li>
             </ul>
@@ -217,7 +229,7 @@ export default function Footer() {
           <div>
             <h4
               style={{
-                color: '#FFFDF9',
+                color: '#FFFFFF',
                 fontSize: '1.08rem',
                 marginBottom: '18px',
                 fontFamily: 'var(--sans)',
@@ -228,12 +240,12 @@ export default function Footer() {
             >
               Support & Contact
             </h4>
-            <div style={{ fontSize: '0.92rem', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ fontSize: '0.94rem', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <Phone size={18} color="var(--orange-primary)" style={{ flexShrink: 0 }} />
                 <a
                   href="tel:+916366852888"
-                  style={{ color: '#FFFDF9', textDecoration: 'none', fontWeight: 600 }}
+                  style={{ color: '#FFFFFF', textDecoration: 'none', fontWeight: 600 }}
                 >
                   +91 6366852888
                 </a>
@@ -242,7 +254,7 @@ export default function Footer() {
                 <Mail size={18} color="var(--orange-primary)" style={{ flexShrink: 0 }} />
                 <a
                   href="mailto:volunteers@shlloka.com"
-                  style={{ color: '#FFFDF9', textDecoration: 'none' }}
+                  style={{ color: '#FFFFFF', textDecoration: 'none' }}
                 >
                   volunteers@shlloka.com
                 </a>
@@ -250,26 +262,26 @@ export default function Footer() {
 
               <div
                 style={{
-                  borderTop: '1px solid rgba(255, 249, 240, 0.1)',
+                  borderTop: '1px solid rgba(255, 249, 240, 0.12)',
                   paddingTop: '14px',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '8px',
                 }}
               >
-                <Link to="/contact" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/contact" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Contact Us
                 </Link>
-                <Link to="/faqs" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/faqs" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   FAQs
                 </Link>
-                <Link to="/cancellation-policy" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/cancellation-policy" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Cancellation Policy
                 </Link>
-                <Link to="/terms-and-conditions" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/terms-and-conditions" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Terms and Conditions
                 </Link>
-                <Link to="/privacy-policy" style={{ color: '#D6CBC1', textDecoration: 'none' }}>
+                <Link to="/privacy-policy" style={{ color: '#E9DCCB', textDecoration: 'none' }}>
                   Privacy Policy
                 </Link>
               </div>
@@ -280,15 +292,15 @@ export default function Footer() {
         {/* Distinct Copyright & Powered by Grexotix Strip */}
         <div
           style={{
-            borderTop: '1px solid rgba(255, 249, 240, 0.12)',
+            borderTop: '1px solid rgba(255, 249, 240, 0.14)',
             paddingTop: '28px',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
             gap: '16px',
-            fontSize: '0.86rem',
-            color: '#B5A89C',
+            fontSize: '0.88rem',
+            color: '#D6CBC1',
             width: '100%',
           }}
         >
@@ -296,15 +308,14 @@ export default function Footer() {
             © 2027 Shlloka Yatra. All rights reserved.
           </div>
 
-          {/* Prominently Styled Powered by Grexotix Link */}
+          {/* Exact Text "Powered by Grexotix" */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span>Powered by</span>
             <a
               href="https://grexotix.com/"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: 'var(--amber-soft)',
+                color: 'var(--yellow-warm)',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
                 textDecoration: 'none',
@@ -314,9 +325,9 @@ export default function Footer() {
                 transition: 'color 0.2s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--orange-primary)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--amber-soft)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--yellow-warm)')}
             >
-              Grexotix
+              Powered by Grexotix
             </a>
           </div>
 
@@ -324,7 +335,7 @@ export default function Footer() {
             <Link
               to="/admin/login"
               style={{
-                color: '#8C7F73',
+                color: '#A8998C',
                 fontSize: '0.8rem',
                 textDecoration: 'none',
               }}
